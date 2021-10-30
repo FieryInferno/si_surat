@@ -7,7 +7,7 @@ class Kepala extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Mainmodel','m');
 	}
-	 
+
 	function index()
 	{
 		$data['title'] = "APS | Kepala-Dashboard";

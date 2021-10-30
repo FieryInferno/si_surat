@@ -72,9 +72,7 @@
         <div id="navbar-mobile" class="collapse navbar-toggleable-sm">
           <ul class="nav navbar-nav">
             <li class="nav-item hidden-sm-down"><a class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="icon-menu5"></i></a></li>
-            
           </ul>
-         
       </div>
     </div>
   </div>
@@ -83,41 +81,37 @@
 <!-- main menu-->
 <div data-scroll-to-active="true" class="main-menu menu-fixed menu-dark menu-accordion menu-shadow">
   <!-- main menu header-->
-   <div class="sidebar sidebar-main sidebar-fixed">
-        <div class="sidebar-content">
-
-          <!-- User menu -->
-           <div class="main-menu-header">
-            <center>
-            <img src="<?php echo base_url();?>assets/app-assets/images/icons/abe.png" width="100px">
-            </center>
-          </div>
-          <div class="sidebar-user">
-            <div class="category-content">
-              <div class="media">
-                <a class="media-left"></a> 
-                <div class="media-body">
-                    
+  <div class="sidebar sidebar-main sidebar-fixed">
+    <div class="sidebar-content">
+      <!-- User menu -->
+      <div class="main-menu-header">
+        <center>
+        <img src="<?php echo base_url();?>assets/app-assets/images/icons/abe.png" width="100px">
+        </center>
+      </div>
+      <div class="sidebar-user">
+        <div class="category-content">
+          <div class="media">
+            <a class="media-left"></a> 
+            <div class="media-body">
               <span class="media-heading text-semibold"><?php echo $admin[0]->nama ?></span>
               <div class="text-size-mini text-muted">
                 <i class="text-size-medium"></i> &nbsp;<?php echo $admin[0]->jabatan?>
-                </div>
-                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
   
   <!-- / main menu header-->
   <!-- main menu content-->
   <div class="main-menu-content">
-     <span>Menu</span>
+    <span>Menu</span>
     <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
-      <li class=" nav-item"><a href="<?php echo base_url('kepala') ?>"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title">Dashboard</span></a>
-      </li>
-
-       <li class=" nav-item"><a href="#"><i class="fa fa-envelope"></i><span data-i18n="nav.advance_cards.main" class="menu-title">Arsip Surat</spanent></a>
+      <li class=" nav-item"><a href="<?php echo base_url('kepala') ?>"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title">Dashboard</span></a></li>
+      <li class=" nav-item"><a href="#"><i class="fa fa-envelope"></i><span data-i18n="nav.advance_cards.main" class="menu-title">Arsip Surat</spanent></a>
         <ul class="menu-cont">
           <li><a href="<?php echo base_url('kepala/suratmasuk') ?>" data-i18n="nav.cards.masuk" class="menu-item">Surat Masuk</a>
           </li>
@@ -126,18 +120,17 @@
         </ul>
       </li>
 
-       <li class=" nav-item"><a href="#"><i class="fa fa-envelope"></i><span data-i18n="nav.advance_cards.main" class="menu-title">Buat Surat</spanent></a>
+      <li class=" nav-item"><a href="#"><i class="fa fa-envelope"></i><span data-i18n="nav.advance_cards.main" class="menu-title">Buat Surat</spanent></a>
         <ul class="menu-cont">
-         
+          <li><a href="<?= base_url(); ?>kepala/surat_independen" class="menu-item">Surat Independen</a></li>
+          <li><a href="<?= base_url(); ?>kepala/" class="menu-item">Surat Keberatan</a></li>
+          <li><a href="<?= base_url(); ?>kepala/" class="menu-item">Surat Konsultasi</a></li>
+          <li><a href="<?= base_url(); ?>kepala/" class="menu-item">Surat Perikatan</a></li>
+          <li><a href="<?= base_url(); ?>kepala/" class="menu-item">Surat Tugas</a></li>
         </ul>
       </li>
-
-
-      <li class=" nav-item"><a href="<?php echo base_url('kepala/rekapitulasisurat') ?>"><i class="fa fa-file"></i><span data-i18n="nav.dash.main" class="menu-title">Rekapitulasi Surat</span></a>
-      </li>
-
+      <li class=" nav-item"><a href="<?php echo base_url('kepala/rekapitulasisurat') ?>"><i class="fa fa-file"></i><span data-i18n="nav.dash.main" class="menu-title">Rekapitulasi Surat</span></a></li>
       <li class="nav-item"><a href="<?php echo base_url('auth/logout')?>"><i class="icon-switch"></i> <span data-i18n="nav.dash.main" class="menu-title">Keluar </span></a></li>
-
     </ul>
   </div>  
 </div>
@@ -195,18 +188,18 @@
 
         function sama() {
           if ($("#baru").val()!=='' && $("#baru2").val()!=='') {
-           if ($("#baru").val()===$("#baru2").val()) {
+            if ($("#baru").val()===$("#baru2").val()) {
+              $("#msg2").addClass('hide');
+              $("#btnganti").prop('disabled',false);
+            }else{
+              $("#msg2").removeClass('hide');
+              $("#btnganti").prop('disabled',true);
+            }
+          }else{
             $("#msg2").addClass('hide');
             $("#btnganti").prop('disabled',false);
-          }else{
-            $("#msg2").removeClass('hide');
-            $("#btnganti").prop('disabled',true);
           }
-        }else{
-          $("#msg2").addClass('hide');
-          $("#btnganti").prop('disabled',false);
         }
-      }
 
       function liat() {
         $("#lama").attr('type','text');
