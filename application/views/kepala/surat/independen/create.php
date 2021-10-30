@@ -73,7 +73,7 @@
 						</div>
 						<div class="form-group">
 							<label for="">Aktivitas Utama Klien</label>
-							<input type="text" class="form-control" placeholder="Aktivitas Utama Klien" required name="aktivitas_utama">
+							<input type="text" class="form-control" placeholder="Aktivitas Utama Klien" required name="aktivitas_utama_klien">
 						</div>
 						<div class="form-group">
 							<label for="">Jenis Jasa Profesi</label>

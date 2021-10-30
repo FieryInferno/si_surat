@@ -8,20 +8,20 @@
 		</div>
 		<div class="col-xs-12">
 			<?php 
-			if ($this->session->flashdata('error')!==null) {
+			if ($this->session->error) {
 				?>
 				<div class="alert alert-danger">
 					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-					<?php echo $this->session->flashdata('error') ?>
+					<?= $this->session->error; ?>
 				</div>
 				<?php
 			}
 
-			if ($this->session->flashdata('success')!==null) {
+			if ($this->session->success) {
 				?>
 				<div class="alert alert-success">
 					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-					<?php echo $this->session->flashdata('success') ?>
+					<?= $this->session->success; ?>
 				</div>
 				<?php
 			}

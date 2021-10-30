@@ -7,4 +7,9 @@ class ModelSuratIndependen extends CI_Model {
 	{
 		return $this->db->get('surat_independen')->result_array();
 	}
+
+  public function store($data)
+  {
+    $this->db->insert('surat_independen', $data);
+  }
 }
