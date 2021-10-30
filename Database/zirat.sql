@@ -1,20 +1,21 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
--- http://www.phpmyadmin.net
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: 12 Okt 2021 pada 14.47
--- Versi Server: 5.6.21
--- PHP Version: 5.6.3
+-- Host: localhost
+-- Generation Time: Oct 30, 2021 at 06:15 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `zirat`
@@ -23,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `disposisi`
+-- Table structure for table `disposisi`
 --
 
-CREATE TABLE IF NOT EXISTS `disposisi` (
+CREATE TABLE `disposisi` (
   `id_disposisi` int(11) NOT NULL,
   `no_surat` varchar(100) NOT NULL,
   `diteruskan` varchar(100) NOT NULL,
@@ -46,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `disposisi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `disposisi`
+-- Dumping data for table `disposisi`
 --
 
 INSERT INTO `disposisi` (`id_disposisi`, `no_surat`, `diteruskan`, `dari`, `dgn_hormat`, `tgl_surat`, `tgl_diterima`, `sifat`, `perihal`, `catatan`, `id_pegawai`, `id_smasuk`, `v_read`, `tanggapan`, `tujuan`, `teruntuk`) VALUES
@@ -75,11 +76,11 @@ INSERT INTO `disposisi` (`id_disposisi`, `no_surat`, `diteruskan`, `dari`, `dgn_
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `keluar`
+-- Table structure for table `keluar`
 --
 
-CREATE TABLE IF NOT EXISTS `keluar` (
-`id_skeluar` int(11) NOT NULL,
+CREATE TABLE `keluar` (
+  `id_skeluar` int(11) NOT NULL,
   `no_surat` varchar(50) NOT NULL,
   `kode_surat` varchar(50) NOT NULL,
   `tgl_keluar` date NOT NULL,
@@ -97,11 +98,11 @@ CREATE TABLE IF NOT EXISTS `keluar` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `masuk`
+-- Table structure for table `masuk`
 --
 
-CREATE TABLE IF NOT EXISTS `masuk` (
-`id_smasuk` int(11) NOT NULL,
+CREATE TABLE `masuk` (
+  `id_smasuk` int(11) NOT NULL,
   `no_surat` varchar(30) NOT NULL,
   `kode_surat` varchar(30) NOT NULL,
   `kategori` varchar(29) NOT NULL,
@@ -112,10 +113,10 @@ CREATE TABLE IF NOT EXISTS `masuk` (
   `keterangan` text NOT NULL,
   `foto` varchar(100) NOT NULL,
   `id_pegawai` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `masuk`
+-- Dumping data for table `masuk`
 --
 
 INSERT INTO `masuk` (`id_smasuk`, `no_surat`, `kode_surat`, `kategori`, `pengirim`, `perihal`, `tgl_masuk`, `ditujukan`, `keterangan`, `foto`, `id_pegawai`) VALUES
@@ -124,11 +125,11 @@ INSERT INTO `masuk` (`id_smasuk`, `no_surat`, `kode_surat`, `kategori`, `pengiri
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pegawai`
+-- Table structure for table `pegawai`
 --
 
-CREATE TABLE IF NOT EXISTS `pegawai` (
-`id_pegawai` int(11) NOT NULL,
+CREATE TABLE `pegawai` (
+  `id_pegawai` int(11) NOT NULL,
   `nip` varchar(30) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `pangkat` varchar(30) NOT NULL,
@@ -137,10 +138,10 @@ CREATE TABLE IF NOT EXISTS `pegawai` (
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `soft_delete` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pegawai`
+-- Dumping data for table `pegawai`
 --
 
 INSERT INTO `pegawai` (`id_pegawai`, `nip`, `nama`, `pangkat`, `jabatan`, `akses`, `username`, `password`, `soft_delete`) VALUES
@@ -148,6 +149,37 @@ INSERT INTO `pegawai` (`id_pegawai`, `nip`, `nama`, `pangkat`, `jabatan`, `akses
 (20, '196105041982091001', 'Drs. YIYIN SODIKIN, M.Si ', 'Pembina TK.1 ', 'Kepala', 'kepala', 'yiyin', 'yiyin', 0),
 (21, '196503181987031005', 'HERU KIATNO, S.Pd, M.Si', 'Pembina TK.1', 'kasubag', 'Kasubag', 'heru', 'heru', 0),
 (23, '197209202007012013', 'LINA SI', 'Penata', 'Kasubag Program dan Keuangan', 'Operator', 'lina', 'lina', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_independen`
+--
+
+CREATE TABLE `surat_independen` (
+  `id` int(11) NOT NULL,
+  `tanggal` date NOT NULL,
+  `nama_partner` varchar(191) NOT NULL,
+  `nama_supervisor` varchar(191) NOT NULL,
+  `ketua_tim` varchar(191) NOT NULL,
+  `nama_anggota_1` varchar(191) NOT NULL,
+  `nama_anggota_2` varchar(191) NOT NULL,
+  `nama_klien` varchar(191) NOT NULL,
+  `alamat_klien` varchar(191) NOT NULL,
+  `telp` int(191) NOT NULL,
+  `aktivitas_utama_klien` varchar(191) NOT NULL,
+  `jenis_jasa_profesi` varchar(191) NOT NULL,
+  `periode_pelaksanaan` varchar(191) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `surat_independen`
+--
+
+INSERT INTO `surat_independen` (`id`, `tanggal`, `nama_partner`, `nama_supervisor`, `ketua_tim`, `nama_anggota_1`, `nama_anggota_2`, `nama_klien`, `alamat_klien`, `telp`, `aktivitas_utama_klien`, `jenis_jasa_profesi`, `periode_pelaksanaan`, `created_at`, `updated_at`) VALUES
+(1, '2021-10-06', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 3, 'a', 'a', 'a', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -157,19 +189,29 @@ INSERT INTO `pegawai` (`id_pegawai`, `nip`, `nama`, `pangkat`, `jabatan`, `akses
 -- Indexes for table `keluar`
 --
 ALTER TABLE `keluar`
- ADD PRIMARY KEY (`id_skeluar`), ADD KEY `id_pegawai` (`id_pegawai`), ADD KEY `id_pegawai_2` (`id_pegawai`);
+  ADD PRIMARY KEY (`id_skeluar`),
+  ADD KEY `id_pegawai` (`id_pegawai`),
+  ADD KEY `id_pegawai_2` (`id_pegawai`);
 
 --
 -- Indexes for table `masuk`
 --
 ALTER TABLE `masuk`
- ADD PRIMARY KEY (`id_smasuk`), ADD KEY `id_pegawai` (`id_pegawai`), ADD KEY `id_pegawai_2` (`id_pegawai`);
+  ADD PRIMARY KEY (`id_smasuk`),
+  ADD KEY `id_pegawai` (`id_pegawai`),
+  ADD KEY `id_pegawai_2` (`id_pegawai`);
 
 --
 -- Indexes for table `pegawai`
 --
 ALTER TABLE `pegawai`
- ADD PRIMARY KEY (`id_pegawai`);
+  ADD PRIMARY KEY (`id_pegawai`);
+
+--
+-- Indexes for table `surat_independen`
+--
+ALTER TABLE `surat_independen`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -179,17 +221,27 @@ ALTER TABLE `pegawai`
 -- AUTO_INCREMENT for table `keluar`
 --
 ALTER TABLE `keluar`
-MODIFY `id_skeluar` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_skeluar` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `masuk`
 --
 ALTER TABLE `masuk`
-MODIFY `id_smasuk` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id_smasuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
-MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT for table `surat_independen`
+--
+ALTER TABLE `surat_independen`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
