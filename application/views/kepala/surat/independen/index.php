@@ -33,30 +33,33 @@
 	<div class="row" style="margin-top: -30px;">
 		<div class="col-12">
 			<div class="card">
-				<div class="container">
-					<div class="card-body">
-						<div class="table-responsive m-t-40" style="margin-bottom: 15px;">
-							<table cellspacing="0" class="display nowrap table table-hover table-striped table-bordered tableku" width="100%">
-								<thead>
-									<tr>
-										<th>No</th>
-										<th>Tanggal</th>
-										<th>Nama Partner</th>
-										<th>Nama Supervisor</th>
-										<th>Ketua Tim</th>
-										<th>Nama Anggota 1</th>
-										<th>Nama Anggota 2</th>
-										<th>Nama Klien</th>
-										<th>Alamat Klien</th>
-										<th>Telp/Fax</th>
-										<th>Aktivitas Utama Klien</th>
-										<th>Jenis Jasa Profesi yang Diberikan</th>
-										<th>Periode Pelaksanaan Perikatan</th>
-										<th class="text-center">Aksi</th>
-									</tr>
-								</thead>
-								<tbody id="isi">
-									<?php 
+        <div class="card-header">
+          <a href="<?= base_url(); ?>kepala/surat_independen/tambah" class="btn btn-primary">Tambah</a>
+        </div>
+        <div class="container">
+          <div class="card-body">
+            <div class="table-responsive m-t-40" style="margin-bottom: 15px;">
+              <table cellspacing="0" class="display nowrap table table-hover table-striped table-bordered tableku" width="100%">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Tanggal</th>
+                    <th>Nama Partner</th>
+                    <th>Nama Supervisor</th>
+                    <th>Ketua Tim</th>
+                    <th>Nama Anggota 1</th>
+                    <th>Nama Anggota 2</th>
+                    <th>Nama Klien</th>
+                    <th>Alamat Klien</th>
+                    <th>Telp/Fax</th>
+                    <th>Aktivitas Utama Klien</th>
+                    <th>Jenis Jasa Profesi yang Diberikan</th>
+                    <th>Periode Pelaksanaan Perikatan</th>
+                    <th class="text-center">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="isi">
+                  <?php 
                     $no = 0; 
                     foreach ($independen as $key):?>
                       <tr>
@@ -77,12 +80,11 @@
                       </tr>
                     <?php endforeach 
                   ?>
-							</tbody>
-						</table>
-					</div>
-				</div>
+              </tbody>
+            </table>
+          </div>
+        </div>
 			</div>
 		</div>
 	</div>
-</div>
 </section>
