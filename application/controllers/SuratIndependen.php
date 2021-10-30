@@ -50,6 +50,7 @@ class SuratIndependen extends CI_Controller {
       $data['aktivitas_utama_klien']  = $this->input->post('aktivitas_utama_klien');
       $data['jenis_jasa_profesi']     = $this->input->post('jenis_jasa_profesi');
       $data['periode_pelaksanaan']    = $this->input->post('periode_pelaksanaan');
+      $data['created_at']             = date('Y-m-d h:i:s');
 
       $this->ModelSuratIndependen->store($data);
 
@@ -59,5 +60,15 @@ class SuratIndependen extends CI_Controller {
       $this->session->set_flashdata('error', validation_errors());
       redirect($_SERVER['HTTP_REFERER']);
     }
+  }
+
+  public function show($id)
+  {
+    $data           = $this->ModelSuratIndependen->get($id);
+		$data['title']  = "APS | Kepala-Detail Surat Independen";
+    
+		$this->load->view('kepala/header', $data);
+		$this->load->view('kepala/surat/independen/show', $data);
+		$this->load->view('kepala/footer');
   }
 }

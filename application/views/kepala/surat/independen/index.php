@@ -49,18 +49,12 @@
                     <th>Ketua Tim</th>
                     <th>Nama Anggota 1</th>
                     <th>Nama Anggota 2</th>
-                    <th>Nama Klien</th>
-                    <th>Alamat Klien</th>
-                    <th>Telp/Fax</th>
-                    <th>Aktivitas Utama Klien</th>
-                    <th>Jenis Jasa Profesi yang Diberikan</th>
-                    <th>Periode Pelaksanaan Perikatan</th>
                     <th class="text-center">Aksi</th>
                   </tr>
                 </thead>
                 <tbody id="isi">
                   <?php 
-                    $no = 0; 
+                    $no = 1; 
                     foreach ($independen as $key):?>
                       <tr>
                         <td><?= $no++ ?></td>
@@ -70,13 +64,8 @@
                         <td><?= $key['ketua_tim']; ?></td>
                         <td><?= $key['nama_anggota_1'];  ?></td>
                         <td><?= $key['nama_anggota_2'];  ?></td>
-                        <td><?= $key['nama_klien'];  ?></td>
-                        <td><?= $key['alamat_klien'];  ?></td>
-                        <td><?= $key['telp'];  ?></td>
-                        <td><?= $key['aktivitas_utama_klien'];  ?></td>
-                        <td><?= $key['jenis_jasa_profesi'];  ?></td>
-                        <td><?= $key['periode_pelaksanaan'];  ?></td>
-                        <td></td>
+                        <td>
+                          <a href="<?= base_url('kepala/surat_independen/detail/' . $key['id']) ?>" class="btn btn-outline-primary" data-toggle="tooltip" title="Detail Surat Independen"><i class="fa fa-search"></i></a></td>
                       </tr>
                     <?php endforeach 
                   ?>

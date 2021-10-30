@@ -12,4 +12,9 @@ class ModelSuratIndependen extends CI_Model {
   {
     $this->db->insert('surat_independen', $data);
   }
+
+  public function get($id)
+  {
+    return $this->db->get_where('surat_independen', ['id' => $id])->row_array();
+  }
 }
